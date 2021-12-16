@@ -6,6 +6,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 
 //Url vers les pages mettre le nom du composant
 const routes: Routes = [
+  // rederige le user sur la page home
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: PageAccueilComponent },
   { path: 'details', component: PageDetailsComponent },
