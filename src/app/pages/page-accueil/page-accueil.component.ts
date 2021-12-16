@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as _ from 'underscore';
-import { list_products } from 'src/app/data';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-page-accueil',
@@ -8,16 +8,18 @@ import { list_products } from 'src/app/data';
   styleUrls: ['./page-accueil.component.scss'],
 })
 export class PageAccueilComponent implements OnInit {
-  listData = list_products;
+  listData: any;
   public result: string[] = [];
-  constructor() {}
+  constructor(private dataStore: DataService) {
+    this.listData;
+  }
 
-  ngOnInit(): void {
-    let categorie = _.pluck(this.listData, 'product_breadcrumb_label');
-    this.result = [...new Set(categorie)];
+  ngOnInit() {
+    // let categorie = _.pluck(this.listData, 'product_breadcrumb_label');
+    // this.result = [...new Set(categorie)];
 
     // Set renvoi un tableau sans les doublons
-    console.log(this.result);
+    // console.log(this.result);
 
     //uderscore
     // const listAllCataegorie = this.listData.map(
@@ -31,5 +33,11 @@ export class PageAccueilComponent implements OnInit {
 
     // const listUniqJsCategories = [...new Set(listAllCataegorie)];
     // console.log(listUniqJsCategories);
+    this.dataStore.getData().subscribe((data: any) => {
+      this.listData = data;
+      let categorie = _.pluck(this.listData, 'product_breadcrumb_label');
+      this.result = [...new Set(categorie)];
+      console.log(this.result);
+    });
   }
 }

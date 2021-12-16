@@ -8,10 +8,20 @@ import { PageAccueilComponent } from './pages/page-accueil/page-accueil.componen
 import { PageDetailsComponent } from './pages/page-details/page-details.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { FilterSideBarComponent } from './components/filter-side-bar/filter-side-bar.component';
+import { CardPlanteComponent } from './components/card-plante/card-plante.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, NavBarComponent, PageAccueilComponent, PageDetailsComponent, PageNotFoundComponent, FilterSideBarComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [
+    AppComponent,
+    NavBarComponent,
+    PageAccueilComponent,
+    PageDetailsComponent,
+    PageNotFoundComponent,
+    FilterSideBarComponent,
+    CardPlanteComponent,
+  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
