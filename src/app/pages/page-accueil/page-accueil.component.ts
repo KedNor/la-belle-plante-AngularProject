@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import * as _ from 'underscore';
 import { DataService } from 'src/app/data.service';
 
@@ -10,6 +10,7 @@ import { DataService } from 'src/app/data.service';
 export class PageAccueilComponent implements OnInit {
   listData: any;
   public result: string[] = [];
+
   constructor(private dataStore: DataService) {
     this.listData;
   }
@@ -40,4 +41,9 @@ export class PageAccueilComponent implements OnInit {
       console.log(this.result);
     });
   }
+
+  onEventLike() {
+    this.dataStore.plantLiked$.next('');
+  }
+
 }

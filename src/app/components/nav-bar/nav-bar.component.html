@@ -22,6 +22,15 @@
         >
         <a class="nav-link">Panier</a>
         <a class="nav-link disabled">Plus d'option bientôt</a>
+        <a class="nav-link disabled" *ngIf="likeCounter == 0">
+          Pas de plante likée</a
+        >
+        <a class="nav-link disabled" *ngIf="likeCounter == 1"
+          >Plante likée : {{ likeCounter }}</a
+        >
+        <a class="nav-link disabled" *ngIf="likeCounter > 1"
+          >Plantes likées : {{ likeCounter }}</a
+        >
       </div>
     </div>
   </div>
